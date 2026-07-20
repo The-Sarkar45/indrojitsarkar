@@ -1,278 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Indrojit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Indrojit Sarkar Pallab — AI Builder, Dhaka</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Indrojit Sarkar Pallab — CS & AI student at Daffodil International University building agentic AI tools, and writer of the Pigeon Post newsletter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F5;
+    --paper-card:#F9FAFB;
+    --ink:#1C2B45;
+    --ink-soft:#5C6B85;
+    --red:#C0392B;
+    --blue:#2C5282;
+    --gold:#A8752F;
+    --line:rgba(28,43,69,0.14);
+    --radius:5px;
+    --serif:'Source Serif 4', Georgia, serif;
+    --display:'Bebas Neue', Impact, sans-serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+    --maxw:1180px;
+  }
 
-    <style>
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--blue); }
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+  }
+  img{ max-width:100%; display:block; }
 
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0 0 0 0); white-space:nowrap;
+  }
 
+  /* ---------- airmail edge ---------- */
+  .airmail-edge{
+    height:8px;
+    background:repeating-linear-gradient(135deg,
+      var(--red) 0 14px, var(--paper) 14px 20px,
+      var(--blue) 20px 34px, var(--paper) 34px 40px);
+  }
+  hr.route-rule{
+    border:0; height:4px; margin:0;
+    background:repeating-linear-gradient(135deg,
+      var(--red) 0 10px, transparent 10px 15px,
+      var(--blue) 15px 25px, transparent 25px 30px);
+    opacity:0.55;
+  }
 
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
+  .section-inner{ max-width:var(--maxw); margin:0 auto; padding:64px 24px; }
+  .section-label{
+    font-family:var(--mono); font-size:12px; letter-spacing:2.5px;
+    text-transform:uppercase; color:var(--red); margin:0 0 10px;
+    font-weight:600;
+  }
+  h2{
+    font-family:var(--display); font-weight:400; letter-spacing:0.5px;
+    font-size:clamp(28px,4vw,40px); margin:0 0 24px; color:var(--ink);
+  }
 
-        a:hover {
-            text-decoration: underline;
-        }
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:20;
+    background:rgba(238,241,245,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:var(--mono); font-weight:600; letter-spacing:3px;
+    color:var(--ink); text-decoration:none; border:1px solid var(--ink);
+    padding:4px 9px; border-radius:3px; font-size:13px;
+  }
+  .nav-mark:hover{ text-decoration:none; background:var(--ink); color:var(--paper); }
+  .nav-links{ display:flex; gap:28px; }
+  .nav-links a{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-links a:hover{ color:var(--red); border-color:var(--red); }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  /* ---------- hero ---------- */
+  .hero-inner{
+    max-width:var(--maxw); margin:0 auto; padding:72px 24px 56px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--red); margin:0 0 14px; font-weight:600;
+  }
+  h1{
+    font-family:var(--display); font-weight:400; letter-spacing:1px;
+    font-size:clamp(44px,7.5vw,76px); line-height:0.98; margin:0 0 20px; color:var(--ink);
+  }
+  .hero-sub{
+    font-size:19px; max-width:46ch; color:var(--ink-soft); margin:0 0 30px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px; text-transform:uppercase;
+    text-decoration:none; padding:12px 20px; border-radius:var(--radius);
+    display:inline-block; border:1px solid var(--ink); transition:transform .15s, background .15s, color .15s;
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ transform:translateY(-2px); background:var(--red); border-color:var(--red); }
+  .btn-ghost{ color:var(--ink); }
+  .btn-ghost:hover{ transform:translateY(-2px); background:var(--ink); color:var(--paper); }
 
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+  .hero-visual{ display:flex; flex-direction:column; align-items:center; gap:18px; }
+  .postmark{ width:232px; height:232px; }
+  .postmark-ring{ fill:none; stroke:var(--ink); }
+  .postmark text{ font-family:var(--mono); fill:var(--ink); }
+  .postmark .center-1{ font-size:11px; letter-spacing:1px; font-weight:600; }
+  .postmark .center-2{ font-size:15px; letter-spacing:1px; }
+  .postmark .bird{ fill:var(--red); }
 
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+  .hero-photo{
+    width:207px; height:255px; background:var(--paper-card);
+    border:1px solid var(--line); border-radius:2px; padding:12px 12px 33px;
+    box-shadow:0 6px 14px rgba(28,43,69,0.15); transform:rotate(4deg);
+}
+  .hero-photo img{ width:100%; height:177px; object-fit:cover; border-radius:1px; }
+  .hero-photo.photo-fallback{
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-photo.photo-fallback::after{
+    content:'ISP'; font-family:var(--display); font-size:32px; color:var(--ink-soft);
+    letter-spacing:2px;
+  }
 
-        h1 {
-            margin: 15px 0 10px;
-            font-size: 36px;
-            font-weight: 600;
-        }
+  /* load-in animation */
+  .reveal{ opacity:0; transform:translateY(14px); animation:rise .7s ease forwards; }
+  .reveal.d1{ animation-delay:.05s; }
+  .reveal.d2{ animation-delay:.18s; }
+  .reveal.d3{ animation-delay:.32s; }
+  @keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+  .stamp-in{ opacity:0; transform:scale(1.25) rotate(4deg); animation:stampdown .55s cubic-bezier(.2,.8,.3,1.2) forwards; animation-delay:.35s; }
+  @keyframes stampdown{ to{ opacity:1; transform:scale(1) rotate(-6deg); } }
 
-        .nav {
-            margin-top: 10px;
-        }
+  /* ---------- about ---------- */
+  .about-grid p{ max-width:64ch; }
+  .about-cred{
+    font-family:var(--mono); font-size:14px; color:var(--ink-soft);
+    border-top:1px solid var(--line); padding-top:18px; margin-top:26px;
+  }
+  .about-cred a{ color:var(--ink); }
 
-        .nav a {
-            margin: 0 15px;
-            font-size: 16px;
-            color: #555;
-        }
+  /* ---------- projects ---------- */
+  .project-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; margin-top:8px; align-items:start; }
+  .project-card{
+    background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 26px 24px; position:relative; overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .project-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(28,43,69,0.10); }
+  .card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:10px; }
+  .project-card h3{ font-family:var(--display); font-weight:400; letter-spacing:0.5px; font-size:26px; margin:0; color:var(--ink); }
+  .project-alias{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); margin:2px 0 0; }
+  .status{
+    font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+    padding:4px 9px; border-radius:20px; border:1px dashed currentColor; white-space:nowrap; flex-shrink:0;
+  }
+  .status-delivered{ color:var(--blue); }
+  .status-transit{ color:var(--gold); }
+  .project-desc{ margin:12px 0 16px; color:var(--ink); max-width:46ch; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.5px;
+    background:var(--paper); border:1px solid var(--line); border-radius:3px;
+    padding:4px 9px; color:var(--ink-soft);
+  }
+  .project-footnote{
+    font-family:var(--mono); font-size:13.5px; color:var(--ink-soft); margin-top:24px;
+  }
+  .project-footnote strong{ color:var(--ink); }
 
-        /* Sections */
-        h2 {
-            font-size: 28px;
-            margin-top: 40px;
-            margin-bottom: 15px;
-        }
+  /* ---------- writing ---------- */
+  .writing-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:start; }
+  .writing-copy p{ max-width:52ch; }
+  .subscribe-card{
+    background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px; text-align:left; position:relative;
+  }
+  .subscribe-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:5px;
+    background:repeating-linear-gradient(135deg, var(--red) 0 8px, transparent 8px 12px, var(--blue) 12px 20px, transparent 20px 24px);
+    border-radius:var(--radius) var(--radius) 0 0;
+  }
+  .pigeon-icon{ width:34px; height:34px; margin-bottom:10px; }
+  .subscribe-card h3{ font-family:var(--display); font-size:24px; font-weight:400; margin:0 0 6px; letter-spacing:0.5px; }
+  .subscribe-card p{ color:var(--ink-soft); font-size:15px; margin:0 0 18px; }
+  .subscribe-form{ display:flex; gap:8px; flex-wrap:wrap; }
+  .subscribe-form input{
+    flex:1 1 180px; padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius);
+    font-family:var(--serif); font-size:15px; background:var(--paper);
+  }
+  .subscribe-form button{
+    font-family:var(--mono); font-size:13px; letter-spacing:1px; text-transform:uppercase;
+    background:var(--red); color:#fff; border:none; border-radius:var(--radius);
+    padding:0 18px; cursor:pointer; transition:background .15s;
+  }
+  .subscribe-form button:hover{ background:var(--ink); }
+  .subscribe-fineprint{ font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); margin:12px 0 0; }
 
-        p {
-            font-size: 17px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+  /* ---------- contact ---------- */
+  .routes{ list-style:none; margin:0; padding:0; display:grid; gap:2px; }
+  .routes li a{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    text-decoration:none; color:var(--ink); padding:14px 4px; border-bottom:1px solid var(--line);
+    font-family:var(--display); font-size:22px; letter-spacing:0.5px; transition:padding-left .15s, color .15s;
+  }
+  .routes li a span{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.5px; color:var(--ink-soft); text-transform:none;
+  }
+  .routes li a:hover{ padding-left:12px; color:var(--red); }
+  .routes li a:hover span{ color:var(--red); }
 
-        /* Spanning Tree section */
-        .spanning-tree {
-            margin-top: 30px;
-        }
+  /* ---------- footer ---------- */
+  .site-footer{ border-top:1px solid var(--line); }
+  .footer-inner{
+    padding:28px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  }
+  .footer-inner p{ margin:0; font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); }
+  .footer-inner a{ font-family:var(--mono); font-size:12.5px; text-decoration:none; color:var(--ink-soft); }
+  .footer-inner a:hover{ color:var(--red); }
 
-        .youtube-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 10px 0 15px;
-        }
+  /* ---------- responsive ---------- */
+  @media (max-width:760px){
+    .hero-inner{ grid-template-columns:1fr; padding-top:48px; }
+    .hero-visual{ flex-direction:row; justify-content:center; }
+    .writing-grid{ grid-template-columns:1fr; }
+    .project-grid{ grid-template-columns:1fr; }
+    .nav-links{ gap:16px; }
+    .routes li a{ font-size:18px; }
+  }
+  @media (max-width:460px){
+    .nav-links a:nth-child(3){ display:none; } /* keep nav from wrapping ugly on very small screens */
+    .hero-visual{ flex-direction:column; }
+  }
 
-        .youtube-badge img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .youtube-button {
-            background: #ff0000;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .subscriber-count {
-            border: 1px solid #ccc;
-            padding: 5px 10px;
-            font-size: 14px;
-            border-radius: 4px;
-        }
-
-        /* Subscription box */
-        .subscribe-box {
-            border: 1px solid #e0e0e0;
-            padding: 30px;
-            margin-top: 30px;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .subscribe-box img {
-            width: 60px;
-            margin-bottom: 10px;
-        }
-
-        .subscribe-box h3 {
-            margin-bottom: 5px;
-        }
-
-        .subscribe-box p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .subscribe-form {
-            margin-top: 15px;
-        }
-
-        .subscribe-form input {
-            padding: 10px;
-            width: 60%;
-            max-width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .subscribe-form button {
-            padding: 10px 18px;
-            border: none;
-            background: #4da3ff;
-            color: #fff;
-            border-radius: 5px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-
-        /* Links */
-        ul {
-            margin-top: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 28px;
-            }
-
-            .subscribe-form input {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .subscribe-form button {
-                width: 100%;
-                margin-left: 0;
-            }
-        }
-    </style>
+  @media (prefers-reduced-motion:reduce){
+    .reveal, .stamp-in{ animation:none !important; opacity:1 !important; transform:none !important; }
+    html{ scroll-behavior:auto; }
+    .project-card:hover, .btn:hover{ transform:none; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
+<div class="airmail-edge" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <div class="header">
-        <img src="me.jpg" alt="Brian Yu" class="profile-img">
-        <h1>INDROJIT SARKAR PALLAB</h1>
-        <div class="nav">
-             <!-- <a href="#">Home</a>
-            <a href="#">Teaching</a>
-            <a href="#">Software</a> -->
-        </div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-mark">I·S·P</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow reveal d1">Dhaka, Bangladesh</p>
+      <h1 class="reveal d1">Indrojit Sarkar<br>Pallab</h1>
+      <p class="hero-sub reveal d2">I build small, working software — a turf-booking platform, a campus charger-sharing network — and write about where technology, history and society meet.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#projects" class="btn btn-primary">See what I've built</a>
+        <a href="#writing" class="btn btn-ghost">Read Pigeon Post</a>
+      </div>
     </div>
 
-    <!-- Intro -->
-    <h2>Hello!</h2>
+    <div class="hero-visual">
+      <svg class="postmark stamp-in" viewBox="0 0 200 200" role="img" aria-label="Postmark stamp: Daffodil International University, Dept. of CIS, class of 2025 to 2028">
+        <defs>
+          <path id="ring" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+        </defs>
+        <circle class="postmark-ring" cx="100" cy="100" r="92" stroke-width="1.5"/>
+        <circle class="postmark-ring" cx="100" cy="100" r="60" stroke-width="1"/>
+        <text font-size="10.5" letter-spacing="2.5">
+          <textPath href="#ring" startOffset="2%">DAFFODIL INTERNATIONAL UNIVERSITY • DEPT. OF CIS •</textPath>
+        </text>
+        <g transform="translate(100,92)">
+          <path class="bird" d="M0,-8 C6,-10 12,-6 12,-1 C8,-2 6,-1 4,1 C7,2 9,4 9,7 C5,5 2,4 0,5 C-2,4 -5,5 -9,7 C-9,4 -7,2 -4,1 C-6,-1 -8,-2 -12,-1 C-12,-6 -6,-10 0,-8 Z" transform="scale(0.9)"/>
+        </g>
+        <text class="center-1" text-anchor="middle" x="100" y="112">B.Sc CIS</text>
+        <text class="center-2" text-anchor="middle" x="100" y="130">'25 – '28</text>
+      </svg>
 
-   <p>
-        I’m a computer science student Majoring in Artificial Intelligence.
-    </p>
+      <div class="hero-photo">
+        <img src="pallabimg.jpeg" alt="Indrojit Sarkar Pallab" onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback');">
+      </div>
+    </div>
+  </div>
+</section>
 
-    
+<hr class="route-rule">
 
-    <p>
-        I'm currently doing my Bachelor's at <a href="https://daffodilvarsity.edu.bd/department/cis">Daffodil International University, Dept. of CIS</a>.
-        <!-- <a href="#">artificial intelligence</a> and <a href="#">web programming</a>. -->
-        
-    </p>
-    <p>
-<b>Focus -</b>
-AI, ML, Game Development
-        
-    </p>
-    <p>
-        <b>What I'm working on -</b>
-        I’m currently building small software projects while developing a strong foundation in algorithms, data structures, and machine learning concepts.
-    </p>
-    <p>
-       
-        I run <a href="https://pigeon-post.beehiiv.com/">Pigeon Post</a>, a newsletter where I write about ideas in technology, Social aspects, learning, exploring Computer Science, Artificial Intelligence, Books, History and the questions that sit among them.
-    </p>
-    
-    <p>
-        Contact me at <a href="mailto:pallabsarkar673@gmail.com">pallabsarkar673@gmail.com</a>.
-    </p>
+<section class="about" id="about">
+  <div class="section-inner">
+    <p class="section-label">Focus</p>
+    <h2>Small systems, solved properly</h2>
+    <div class="about-grid">
+      <p>I like problems that are annoying in a very specific way — a pitch double-booked at 8pm on a Friday, a phone at 40% battery with no charger in sight. Most of what I build tries to fix a piece of that properly: a booking system that never lets two people claim the same slot, a peer-to-peer network for something every student on campus eventually runs out of.</p>
+      <p>I'm currently building small, working software while filling in the foundation underneath it — algorithms, data structures, and the machine learning concepts that make the rest of it hold together. I'd rather ship something narrow and correct than something broad and hand-wavy.</p>
+    </div>
+    <p class="about-cred">B.Sc in Computer &amp; Information Science at <a href="https://daffodilvarsity.edu.bd/department/cis" target="_blank" rel="noopener">Daffodil International University</a>, Dept. of CIS — session 2025–2028.</p>
+  </div>
+</section>
 
-     <!-- Spanning Tree --> 
-     <div class="spanning-tree">
-        <h2>Pigeon Post</h2>
+<hr class="route-rule">
 
-        <div class="youtube-badge">
-            <img src="pigeon.png" alt="Spanning Tree">
-            <span class="-button">NewsLetter</span>
-          
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <p class="section-label">Projects</p>
+    <h2>Things I've shipped — and one still in transit</h2>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="card-top">
+          <div>
+            <h3>TurfHub</h3>
+            <p class="project-alias">formerly BookMyTurf</p>
+          </div>
+          <span class="status status-delivered">Delivered</span>
         </div>
-
-        <p>
-            <a href="#">Pigeon Post</a> is a collection of educational content I've written
-            , primarily about topics in Social and History.
-        </p>
-
-        <p>
-            To get updates when new Articles are published,
-            <a href="#">join the list</a>
-            or <a href="#">subscribe</a>.
-        </p>
-
-        <!-- Subscribe box -->
-         <div class="subscribe-box">
-            <img src="pigeon.png" alt="">
-            <h3>Pigeon Post</h3>
-            <p>A Newsletter series about Society, History and more</p>
-            <p>Over 1,000 subscribers</p>
-
-            <div class="subscribe-form">
-                <input type="email" placeholder="Type your email...">
-                <button>Subscribe</button>
-            </div>
-
-            <p style="font-size: 12px; margin-top: 10px;">
-                By subscribing you agree to Pigeon-post’s Terms of Use, Privacy Policy and
-                information collection notice
-            </p>
+        <p class="project-desc">A multi-vendor booking platform for turf football, built around a problem that's a real bug and not an edge case: two people trying to claim the same 8pm slot. Redis handles the slot-hold concurrency underneath; the frontend leans into a night-pitch, under-the-lights look.</p>
+        <div class="tag-row">
+          <span class="tag">FastAPI</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Slot concurrency</span>
         </div>
-    </div> 
+      </article>
 
-    <!-- Links -->
-    <h2>Links</h2>
-    <ul>
-        <li><a href="https://x.com/the_sarkar45?s=21">X</a></li>
-        <li><a href="mailto:pallabsarkar673@gmail.com">Email</a></li>
-        <li><a href="https://github.com/The-Sarkar45">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/indrojit-sarkar-pallab-9923a6335/">LinkedIn</a></li>
-        
-        <li><a href="https://www.facebook.com/pallab.sarkar.328140">Facebook</a></li>
+      <article class="project-card">
+        <div class="card-top">
+          <div>
+            <h3>ChargeDIU</h3>
+            <p class="project-alias">Campus Charger Sharing Network</p>
+          </div>
+          <span class="status status-transit">In transit</span>
+        </div>
+        <p class="project-desc">A peer-to-peer marketplace for something every student runs out of on campus: a charger cable, right when the battery hits 40%. Students list spare chargers — USB-C, Lightning, Micro-USB, laptop — at a flat borrow price, with zero commission on what renters earn. An ID check and a before-photo on every borrow keep a shared charger from quietly disappearing.</p>
+        <div class="tag-row">
+          <span class="tag">Peer-to-peer</span>
+          <span class="tag">Zero commission</span>
+          <span class="tag">৳ flat pricing</span>
+          <span class="tag">8am–8pm service window</span>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="project-footnote">Also on the bench: <strong>RiverSentinel</strong>, an IoT-based riverbank breach detection system, presented at a DIU academic demo.</p>
+  </div>
+</section>
+
+<hr class="route-rule">
+
+<section class="writing" id="writing">
+  <div class="section-inner writing-grid">
+    <div class="writing-copy">
+      <p class="section-label">Pigeon Post</p>
+      <h2>A newsletter carried by an old idea</h2>
+      <p>Before there was email to triage, there were actual pigeons carrying actual mail. Pigeon Post is my newsletter about technology, AI, history, books, and the questions that sit between them — the same curiosity that ends up in the systems I build, just given more room to think out loud.</p>
+      <a href="https://pigeon-post.beehiiv.com/" target="_blank" rel="noopener" class="btn btn-ghost">Read the archive →</a>
+    </div>
+
+    <div class="subscribe-card">
+      <svg class="pigeon-icon" viewBox="0 0 40 40" role="img" aria-label="Pigeon Post icon">
+        <path fill="var(--ink)" d="M20,6 C26,4 32,10 31,17 C28,15 26,15 22,17 C25,18 27,20 28,24 C22,21 17,20 12,23 C12,19 15,16 20,16 C13,13 8,15 4,20 C4,12 12,5 20,6 Z"/>
+      </svg>
+      <h3>Pigeon Post</h3>
+      <p>Dispatches on tech, history and society — sent out when there's something worth sending.</p>
+      <form class="subscribe-form" action="https://pigeon-post.beehiiv.com/subscribe" method="get" target="_blank">
+        <label for="email" class="visually-hidden">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="subscribe-fineprint">Opens beehiiv to confirm your subscription.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="route-rule">
+
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in touch</p>
+    <h2>Where to find me</h2>
+    <ul class="routes">
+      <li><a href="mailto:pallabsarkar673@gmail.com">Email <span>pallabsarkar673@gmail.com</span></a></li>
+      <li><a href="https://github.com/The-Sarkar45" target="_blank" rel="noopener">GitHub <span>The-Sarkar45</span></a></li>
+      <li><a href="https://www.linkedin.com/in/indrojit-sarkar-pallab-9923a6335/" target="_blank" rel="noopener">LinkedIn <span>Indrojit Sarkar Pallab</span></a></li>
+      <li><a href="https://x.com/the_sarkar45?s=21" target="_blank" rel="noopener">X <span>@the_sarkar45</span></a></li>
     </ul>
+  </div>
+</section>
 
-</div>
+</main>
+
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <p>Indrojit Sarkar Pallab — Dhaka, Bangladesh</p>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal for project cards
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const cards = document.querySelectorAll('.project-card');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'rise .6s ease forwards';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateY(14px)'; io.observe(c); });
+  }
+</script>
 
 </body>
 </html>
-
 
 
